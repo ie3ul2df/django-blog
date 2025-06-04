@@ -1,5 +1,5 @@
 """
-WSGI config for codestar_blog project.
+WSGI config for codestar project.
 
 It exposes the WSGI callable as a module-level variable named ``application``.
 
