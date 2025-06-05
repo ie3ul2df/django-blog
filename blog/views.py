@@ -20,3 +20,9 @@ class PostList(generic.ListView):
     # template_name = "post_list.html"
     template_name = "blog/index.html"
     paginate_by = 6
+
+
+# single post detail view
+class PostDetail(generic.DetailView):
+    model = Post
+    template_name = "blog/post_detail.html"  # Make sure this matches your template
