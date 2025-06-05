@@ -18,12 +18,23 @@ class Post(models.Model):
         return self.title
 
 
-# Comment model for blog posts
 class Comment(models.Model):
-    name = models.CharField(max_length=80)
-    email = models.EmailField()
+    post = models.ForeignKey(
+        Post,
+        on_delete=models.CASCADE,
+        related_name="comments",
+        # null=True  # TEMPORARY: allow NULL during migration
+    )
+    author = models.ForeignKey(
+        User,
+        on_delete=models.CASCADE,
+        related_name="commenter",
+        # null=True  # TEMPORARY
+    )
     body = models.TextField()
+    approved = models.BooleanField(default=False)
     created_on = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return f'Comment by {self.name}'
+        return f"Comment by {self.author}"
+
