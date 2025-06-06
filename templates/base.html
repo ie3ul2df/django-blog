@@ -1,6 +1,7 @@
 {% load static %}
 {% url 'home' as home_url %}
 {% url 'about' as about_url %}
+{% url 'admin:index' as admin_url %}
 {% url 'account_login' as login_url %}
 {% url 'account_signup' as signup_url %}
 {% url 'account_logout' as logout_url %}
@@ -67,12 +68,19 @@
                     </li>
                     {% endif %}
 
+
                 </ul>
-                <span class="navbar-text text-muted">
+                <span class="navbar-right text-muted text-end">
                     {% if user.is_authenticated %}
-                    <p class="text-end m-3">You are logged in as {{ user }}</p>
+                    <span>You are logged in as {{ user }}</span>
                     {% else %}
-                    <p class="text-end m-3">You are not logged in</p>
+                    <span>You are not logged in</span>
+                    {% endif %}
+
+                    {% if user.is_superuser %}
+                    <a href="{{ admin_url }}"
+                        style="text-decoration: none; padding: 5px 10px; border-radius: 5px; border: 1px solid #555;">📊
+                        Admin Panel</a>
                     {% endif %}
                 </span>
             </div>
