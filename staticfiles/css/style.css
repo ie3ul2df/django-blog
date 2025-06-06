@@ -159,3 +159,10 @@ body {
 .approval {
   color: rgb(222, 146, 168);
 }
+
+.nav-link.active {
+  color: #e84610 !important;
+  font-weight: bold;
+  scale: 1.1;
+  text-decoration: overline;
+}
