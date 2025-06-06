@@ -18,8 +18,8 @@ from django.contrib import admin
 from django.urls import path, include
 
 urlpatterns = [
+    path("about/", include("about.urls")),
     path('admin/', admin.site.urls),
     path('summernote/', include('django_summernote.urls')),  # For Summernote editor
-    path("about/", include("about.urls")),
     path("", include("blog.urls"), name="blog-urls"),
 ]
